@@ -1,0 +1,57 @@
+.TopPlayers{
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+}
+
+.TopPlayersh2{
+    font-weight: 500;
+    font-size: 28px;
+}
+
+.TopPlayerstr{
+    font-size: 24px;
+    font-weight: bold;
+    height: 40px;
+}
+
+.TopPlayerstr2{
+    font-size: 24px;
+    height: 40px;
+}
+
+.TopPlayerstable {
+    width: 50%;
+  }
+
+.TopPlayersDer{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+}
+
+.TopPlayersIzq{
+    display: flex;
+}
+
+.playertext{
+    font-size: 26px;
+    color: #737373;
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.playername{
+    margin: 0;
+    font-size: 38px;
+    font-weight: bold;
+}
+
+.playerimg{
+    position: absolute;
+    top: 245px;
+    left: 200px;
+    height: 700px;
+}
