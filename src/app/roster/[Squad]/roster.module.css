@@ -1,0 +1,32 @@
+.roster{
+    padding: 30px;
+}
+
+.rosterheader{
+    height: 170px;
+    display: flex;
+    align-items: center;
+    color: white;
+    padding-left: 30px;
+    gap: 15px;
+}
+
+.roster hr{
+    color: black;
+    height:1px;
+    background-color: black;
+}
+
+.roster a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+.roster a:hover{
+    text-decoration: underline;
+}
+
+.imglogo img{
+    height: 150px;
+}
