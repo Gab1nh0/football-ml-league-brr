@@ -1,0 +1,97 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 30px;    
+}
+
+.container p h2 li{
+    margin: 0;
+}
+
+
+.Radar{
+    width: 600px;
+}
+.searchInput {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.searchResults {
+    list-style-type: none;
+    padding: 0;
+    width: 320px;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    position: absolute;
+    top: 50px; 
+    z-index: 10;
+}
+
+.resultItem {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.resultItem:last-child {
+    border-bottom: none;
+}
+
+.playerInfo li{
+    list-style: none;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    font-size: 25px;
+}
+
+.resultItem:hover {
+    background-color: #f0f0f0;
+}
+
+
+.flag {
+    width: 50px;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+
+.playerData{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding-right: 30px;
+}
+
+.playerData1{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding-right: 30px;
+}
+
+.RadarChart{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.playerDer{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.playerimg{
+    width: 350px;
+}
