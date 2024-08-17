@@ -20,8 +20,8 @@ export default function Teams() {
             try {
                 const querySnapshot = await getDocs(collection(db, 'teams'));
                 const documents: Team[] = querySnapshot.docs.map((doc: QueryDocumentSnapshot<DocumentData>) => ({
-                    id: doc.id,
                     ...doc.data() as Team,
+                    id: doc.id,
                 }));
                 setData(documents);
             } catch (error) {
