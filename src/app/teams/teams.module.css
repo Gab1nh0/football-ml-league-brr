@@ -1,0 +1,36 @@
+.section{
+    padding: 30px;
+}
+
+.teamcontainer {
+    padding: 30px;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 0.25fr 2fr; 
+    gap: 20px; 
+    width: 100%; /* Asegúrate de que el contenedor ocupe el ancho completo disponible */
+    box-sizing: border-box; 
+    align-items: center;
+}
+
+.teamimgcontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.teamcontainer a{
+    text-decoration: none;
+    color: white;
+}
+
+.teamcontainer img{
+    height: 170px;
+}
+
+.teamimg{
+    height: 170px;
+    width: 170px;
+    display: flex;
+    align-items: center;
+}
