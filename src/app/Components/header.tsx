@@ -1,4 +1,4 @@
-import styles from '../components/header.module.css'
+import styles from './header.module.css'
 import React from 'react';
 import Link from 'next/link';
 
