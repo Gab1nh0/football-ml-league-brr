@@ -14,7 +14,7 @@ export default function Home() {
             <br/>
             <h1 className={styles.hometitle}>Asprilla lead the win against Liverpool</h1>
             <br/>
-            <p className={styles.hometext}>In a stunning turn of events, Newcastle United pulled off a remarkable victory against Liverpool in a match that will be etched in football history. The clash between the underdogs and the title contenders was nothing short of a spectacle, leaving fans on the edge of their seats.</p>
+            <p className={styles.hometext}>Hola In a stunning turn of events, Newcastle United pulled off a remarkable victory against Liverpool in a match that will be etched in football history. The clash between the underdogs and the title contenders was nothing short of a spectacle, leaving fans on the edge of their seats.</p>
           </div>
         </div>
         <div className={styles.homeinf}>
