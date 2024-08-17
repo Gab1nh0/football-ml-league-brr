@@ -3,6 +3,7 @@ import { League_Spartan } from "next/font/google";
 import "./globals.css";
 import { Head } from "next/document";
 import Header from "./Components/header";
+import Footer from "./Components/footer";
 
 
 const roboto = League_Spartan({
@@ -27,6 +28,7 @@ export default function RootLayout({
       <body className={roboto.className}>
         <Header/>
         {children}
+        <Footer/>
         </body>
     </html>
   );
