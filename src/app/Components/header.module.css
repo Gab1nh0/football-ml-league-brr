@@ -1,0 +1,45 @@
+.headercontent{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    align-items: center;
+}
+
+.logo{
+    text-decoration: none;
+    color: black;
+}
+
+.headerlinks a{
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    position: relative;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.headerlinks a::after{
+    content: "";
+    position: absolute;
+    background-color: #BB2525;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+.headerlinks a:hover::after{
+    width: 100%;
+}
+
+.headerlinks li{
+    list-style: none;
+}
+
+.headerlinks{
+    display: flex;
+    gap: 20px;
+    padding-right: 10px;
+}
