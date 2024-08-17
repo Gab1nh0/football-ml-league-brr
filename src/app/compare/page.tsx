@@ -41,23 +41,24 @@ interface Player {
     Int: number;
     //passses
     Ast: number,
-  xAG: number,
-  KP: number,
-  PrgP: number,
-  Total_Att: number,
-  Total_Cmp: number;
+    xAG: number,
+    KP: number,
+    PrgP: number,
+    Total_Att: number,
+    Total_Cmp: number;
 }
 
 
 export default function PlayerComparison() {
     const [data, setData] = useState<Player[]>([]);
-    const [dataStats] = useState<Player[]>([]);
+    const [dataStats, setDataStats] = useState<Player[]>([]);
     const [searchText, setSearchText] = useState<string>("");
     const [selectedPlayer, setSelectedPlayer] = useState<Player | null>(null);
     const [selectedPlayerStats, setSelectedPlayerStats] = useState<Player | null>(null);
 
+    
     const [data2, setData2] = useState<Player[]>([]);
-    const [dataStats2] = useState<Player[]>([]);
+    const [dataStats2, setDataStats2] = useState<Player[]>([]);
     const [searchText2, setSearchText2] = useState<string>("");
     const [selectedPlayer2, setSelectedPlayer2] = useState<Player | null>(null);
     const [selectedPlayerStats2, setSelectedPlayerStats2] = useState<Player | null>(null);
@@ -65,28 +66,49 @@ export default function PlayerComparison() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const [playersSnapshot] = await Promise.all([
+                const [playersSnapshot, attackSnapshot, defenseSnapshot, passesSnapshot] = await Promise.all([
                     getDocs(collection(db, 'player')),
-                    getDocs(collection(db, 'attack'))
+                    getDocs(collection(db, 'attack')),
+                    getDocs(collection(db, 'defense')),
+                    getDocs(collection(db, 'passes'))
                 ]);
-
+    
                 const players = playersSnapshot.docs.map(doc => ({
                     id: doc.id,
                     ...doc.data()
                 })) as Player[];
-
-
+    
+                // Aquí debes combinar las estadísticas con los jugadores o guardarlas por separado
+                const attackStats = attackSnapshot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data()
+                })) as Player[];
+    
+                const defenseStats = defenseSnapshot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data()
+                })) as Player[];
+    
+                const passesStats = passesSnapshot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data()
+                })) as Player[];
+    
                 setData(players);
                 setData2(players);
-
-
+    
+                // Aquí combinamos las estadísticas y las almacenamos
+                setDataStats([...attackStats, ...defenseStats, ...passesStats]);
+                setDataStats2([...attackStats, ...defenseStats, ...passesStats]);
+    
             } catch (error) {
                 console.error("Error fetching data: ", error);
             }
         };
-
+    
         fetchData();
     }, []);
+    
 
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchText(event.target.value);
@@ -96,10 +118,19 @@ export default function PlayerComparison() {
     const handleSelectPlayer = (player: Player) => {
         setSelectedPlayer(player);
         setSearchText("");
-
+    
         const stats = dataStats.find(stat => stat.id === player.id);
         setSelectedPlayerStats(stats || null);
     };
+    
+    const handleSelectPlayer2 = (player2: Player) => {
+        setSelectedPlayer2(player2);
+        setSearchText2("");
+    
+        const stats2 = dataStats2.find(stat2 => stat2.id === player2.id);
+        setSelectedPlayerStats2(stats2 || null);
+    };
+    
 
     const filteredData = data.filter(player =>
         player.player_name.toLowerCase().includes(searchText.toLowerCase())
@@ -108,14 +139,6 @@ export default function PlayerComparison() {
     const handleSearchChange2 = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchText2(event.target.value);
         setSelectedPlayer2(null);
-    };
-
-    const handleSelectPlayer2 = (player2: Player) => {
-        setSelectedPlayer2(player2);
-        setSearchText2("");
-
-        const stats2 = dataStats2.find(stat2 => stat2.id === player2.id);
-        setSelectedPlayerStats2(stats2 || null);
     };
 
     const filteredData2 = data2.filter(player2 =>
