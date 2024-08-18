@@ -1,0 +1,18 @@
+.form{
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    grid-template-rows: auto auto;
+}
+
+.section{
+    padding: 30px;
+    height: 472px;
+}
+.label{
+    padding: 30px;
+}
+.btn{
+    padding: 30px;
+    display: flex;
+    justify-content: left;
+}
