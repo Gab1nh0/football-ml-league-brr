@@ -41,6 +41,7 @@ export default function Predictor() {
         <>
       <div className={styles.section}>
       <h1>Predicción</h1><br />
+      <p>Este modelo aun esta en fase de desarrollo.</p>
       <form className={styles.form} onSubmit={(e) => { e.preventDefault(); handlePredict();}}>
 
         <div className={styles.label}>
